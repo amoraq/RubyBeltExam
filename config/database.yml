@@ -87,8 +87,7 @@
 default: &default
     adapter: postgresql
     encoding: unicode
-    username: postgres
-    password: root
+    username: ubuntu
     pool: 5
     port: 5432
 
@@ -103,5 +102,3 @@ test:
 production:
     <<: *default
     database: blackbelt
-    username: seeks
-    password: <%= ENV['SEEKS_DATABASE_PASSWORD'] %>
