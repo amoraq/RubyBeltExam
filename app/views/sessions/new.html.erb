@@ -1,0 +1,15 @@
+<div>
+    <h1>Login</h1>
+    <form action="/sessions" method="post">
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <div>
+            <label>Email</label>
+            <input type="email" name="login[email]">
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="login[password]">
+        </div>
+        <input type="submit" value="Login">
+    </form>
+</div>

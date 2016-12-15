@@ -1,0 +1,35 @@
+<p>Hi <%= @user.first_name %></p>
+
+<a href="/dashboard/<%=@user.id%>">Go to dashboard</a>
+
+<p>All Products</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Seller</th>
+            <th>Date Posted</th>
+            <th>Amount</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @products.each do |product| %>
+        <% if product.bought == false %>
+        <tr>
+            <td><%= product.name %></td>
+            <td>
+                <% name = User.find_by(product.user_id) %>
+                <%= name.first_name %>
+            </td>
+            <td><%= product.created_at %></td>
+            <td><%= product.amount %></td>
+            <td>
+                <%= link_to("Buy", shoes_path(@products)) %>
+            </td>
+        </tr>
+        <% end %>
+        <% end %>
+    </tbody>
+</table>
